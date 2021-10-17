@@ -1,0 +1,16 @@
+.mat-toolbar {
+  background-color: rgba(253, 187, 45, 1);
+  border-bottom: 1px solid;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+}
