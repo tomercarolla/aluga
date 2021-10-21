@@ -2,8 +2,13 @@
   <h2>Aluga</h2>
 
   <div class="right">
-    <div>Register</div>
+    <div *ngIf="!user">Register</div>
 
-    <div>Login</div>
+    <a routerLink="login">
+      <div *ngIf="!user; else hasUserBlock">Login</div>
+    </a>
+    <ng-template #hasUserBlock>
+      <div (click)="logout()">Logout</div>
+    </ng-template>
   </div>
 </mat-toolbar>

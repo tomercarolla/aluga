@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {UserInterface} from "./shared/user.interface";
+import {AuthService} from "./auth.service";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'alooga';
+
+  user: UserInterface | null = null;
+
+  constructor(private authService: AuthService) {
+    this.authService.getUser().subscribe((user: UserInterface | null) => this.user = user);
+  }
+
 }

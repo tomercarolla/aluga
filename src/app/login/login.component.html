@@ -4,18 +4,18 @@
       ALUGA
     </div>
 
-    <form>
+    <form [formGroup]="loginForm">
       <mat-form-field>
         <mat-label>Email</mat-label>
-        <input matInput>
+        <input matInput formControlName="email" required email="">
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Password</mat-label>
-        <input matInput type="password">
+        <input matInput formControlName="password" type="password" required>
       </mat-form-field>
 
-      <button mat-raised-button color="primary">Log in</button>
+      <button mat-raised-button color="primary" (click)="submit()" [disabled]="!loginForm.valid">Log in</button>
     </form>
   </div>
 </section>
