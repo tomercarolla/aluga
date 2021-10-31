@@ -1,1 +1,16 @@
-<p>products works!</p>
+<div class="list">
+  <div class="card" *ngFor="let item of products">
+    <div class="img-container">
+      <img [src]="item.image">
+    </div>
+    <div>
+      {{item.productName}}
+    </div>
+    <div>
+      Category: {{item.category}}
+    </div>
+    <div>
+      Price: {{item.price}}
+    </div>
+  </div>
+</div>
