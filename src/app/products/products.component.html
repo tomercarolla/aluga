@@ -1,3 +1,7 @@
+<div class="search-container">
+  <input matInput type="text" placeholder="Search" (input)="searchProduct($event.target.value)">
+</div>
+
 <div class="list">
   <div class="card" *ngFor="let item of products">
     <div class="img-container">

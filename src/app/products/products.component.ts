@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {db} from "../../db";
 import {ItemInterface} from "../shared/item.interface";
 import {CartService} from "../cart.service";
@@ -12,7 +12,8 @@ export class ProductsComponent implements OnInit {
 
   products: ItemInterface[] = db;
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService) {
+  }
 
   ngOnInit(): void {
   }
@@ -21,7 +22,11 @@ export class ProductsComponent implements OnInit {
     this.cartService.addItemToCart(item);
   }
 
-    goToInfo(item: ItemInterface) {
+  goToInfo(item: ItemInterface) {
 
-    }
+  }
+
+  searchProduct(value: string) {
+    console.log(value);
+  }
 }
