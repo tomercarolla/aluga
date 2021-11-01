@@ -2,8 +2,6 @@
   <h2>Aluga</h2>
 
   <div class="right">
-    <div *ngIf="!user">Register</div>
-
     <a routerLink="login">
       <div *ngIf="!user; else hasUserBlock">Login</div>
     </a>

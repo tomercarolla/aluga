@@ -22,10 +22,19 @@
   font-size: 60px;
   display: flex;
   justify-content: center;
+  line-height: 1;
+  margin-bottom: 20px;
 }
 
 form {
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+.register-link {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 12px;
+  color: blue;
 }
