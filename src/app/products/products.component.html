@@ -12,5 +12,8 @@
     <div>
       Price: {{item.price}}
     </div>
+
+    <button mat-stroked-button color="primary" (click)="goToInfo(item)">Info</button>
+    <button mat-raised-button color="primary" (click)="addItemToCart(item)">I Need it!</button>
   </div>
 </div>

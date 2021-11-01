@@ -12,6 +12,9 @@ import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import { ProductsComponent } from './products/products.component';
+import { ItemInfoComponent } from './item-info/item-info.component';
+import { CartComponent } from './cart/cart.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
 
 @NgModule({
   declarations: [
@@ -19,17 +22,20 @@ import { ProductsComponent } from './products/products.component';
     HeaderComponent,
     LoginComponent,
     RegisterComponent,
-    ProductsComponent
+    ProductsComponent,
+    ItemInfoComponent,
+    CartComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatButtonModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatDatepickerModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

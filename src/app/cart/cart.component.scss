@@ -1,0 +1,28 @@
+.row {
+  padding: 10px;
+  display: flex;
+
+  .img-container {
+    width: 197px;
+  }
+
+  img {
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+  }
+
+  .product-description {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .calendar-container {
+    flex: 1;
+  }
+
+  .owner-profile {
+    > button {
+      margin-right: 12px;
+    }
+  }
+}

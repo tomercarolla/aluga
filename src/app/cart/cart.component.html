@@ -1,0 +1,33 @@
+<div class="list">
+  <div class="row" *ngFor="let item of items">
+    <div>
+      <div class="img-container">
+        <img [src]="item.image">
+      </div>
+      <div>
+        {{item.productName}}
+      </div>
+      <div>
+        Category: {{item.category}}
+      </div>
+      <div>
+        Price: {{item.price}}
+      </div>
+    </div>
+    <div class="product-description">
+      <h3>Description:</h3>
+      <p>description of product</p>
+    </div>
+    <div class="calendar-container">
+      <h3>I need these dates:</h3>
+<!--      <mat-calendar (selectedChange)="selected = $event"></mat-calendar>-->
+<!--      <p>Selected date: {{selected}}</p>-->
+    </div>
+    <div class="owner-profile">
+      <div class="owner-name">User: {{item.ownerName}}</div>
+      <div class="owner-location">Location: {{item.location}}</div>
+      <button mat-raised-button color="primary">Check availability</button>
+      <button mat-raised-button color="warn" (click)="removeItemFromCart(item)">Remove</button>
+    </div>
+  </div>
+</div>
