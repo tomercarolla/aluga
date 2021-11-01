@@ -3,10 +3,8 @@
 
   <div class="right">
     <a routerLink="login">
-      <div *ngIf="!user; else hasUserBlock">Login</div>
+      <div *ngIf="router.url === '/register'">Login</div>
     </a>
-    <ng-template #hasUserBlock>
-      <div (click)="logout()">Logout</div>
-    </ng-template>
+    <div *ngIf="user" (click)="logout()">Logout</div>
   </div>
 </mat-toolbar>
