@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {db} from "../../db";
 import {ItemInterface} from "../shared/item.interface";
 import {CartService} from "../cart.service";
+import {debounceTime, distinctUntilChanged, switchMap} from "rxjs/operators";
+import {Subject} from "rxjs";
 
 @Component({
   selector: 'app-products',
@@ -10,12 +11,19 @@ import {CartService} from "../cart.service";
 })
 export class ProductsComponent implements OnInit {
 
-  products: ItemInterface[] = db;
+  products: ItemInterface[] = [];
+  searchValue$: Subject<string> = new Subject<string>();
 
   constructor(private cartService: CartService) {
+    this.cartService.initProducts().subscribe(products => this.products = products);
   }
 
   ngOnInit(): void {
+    this.searchValue$.pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+      switchMap((term: string) => this.cartService.getProducts(term))
+    ).subscribe((items: ItemInterface[]) => this.products = items);
   }
 
   addItemToCart(item: ItemInterface) {
@@ -27,6 +35,6 @@ export class ProductsComponent implements OnInit {
   }
 
   searchProduct(value: string) {
-    console.log(value);
+    this.searchValue$.next(value);
   }
 }

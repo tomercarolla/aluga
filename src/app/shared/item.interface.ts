@@ -1,5 +1,5 @@
 export interface ItemInterface {
-  _id: number,
+  id: number,
   productName: string,
   category: string,
   price: number,

@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {ItemInterface} from "./shared/item.interface";
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
+import {HttpClient} from "@angular/common/http";
+import {map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +11,17 @@ export class CartService {
 
   cart: BehaviorSubject<ItemInterface[]> = new BehaviorSubject<ItemInterface[]>([]);
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  initProducts() {
+    return this.http.get<ItemInterface[]>(`http://localhost:3000/products`);
+  }
+
+  getProducts(value: string): Observable<ItemInterface[]> {
+    return this.http.get<ItemInterface[]>(`http://localhost:3000/products?q=${value}`).pipe(
+      map((result: any) => result)
+    );
+  }
 
   addItemToCart(item: ItemInterface) {
     const oldCart = this.cart.getValue();
@@ -19,7 +31,7 @@ export class CartService {
 
   removeItem(item: ItemInterface) {
     let oldCart = this.cart.getValue();
-    oldCart = oldCart.filter(selectedItem => selectedItem._id !== item._id);
+    oldCart = oldCart.filter(selectedItem => selectedItem.id !== item.id);
     this.cart.next(oldCart);
   }
 
