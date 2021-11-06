@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {ItemInterface} from "./shared/item.interface";
 import {BehaviorSubject, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
-import {map} from "rxjs/operators";
+import {tap} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class CartService {
 
   getProducts(value: string): Observable<ItemInterface[]> {
     return this.http.get<ItemInterface[]>(`http://localhost:3000/products?q=${value}`).pipe(
-      map((result: any) => result)
+      tap((result: any) => result)
     );
   }
 

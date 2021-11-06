@@ -14,7 +14,7 @@
       Category: {{item.category}}
     </div>
     <div>
-      Price: {{item.price}}
+      Price: {{item.price | currency: 'ILS' }}
     </div>
 
     <button mat-stroked-button color="primary" (click)="goToInfo(item)">Info</button>
