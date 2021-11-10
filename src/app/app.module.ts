@@ -6,10 +6,7 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HeaderComponent} from './header/header.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
-import {LoginComponent} from './auth/login/login.component';
-import {RegisterComponent} from './auth/register/register.component';
 import {MatInputModule} from "@angular/material/input";
-import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {ItemInfoComponent} from './item-info/item-info.component';
 import {CartComponent} from './cart/cart.component';
@@ -17,6 +14,8 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {HttpClientModule} from "@angular/common/http";
 import {ProductsModule} from "./products/products.module";
 import {AuthModule} from "./auth/auth.module";
+import {environment} from "../environments/environment";
+import {AkitaNgDevtools} from "@datorama/akita-ngdevtools";
 
 @NgModule({
   declarations: [
@@ -35,7 +34,8 @@ import {AuthModule} from "./auth/auth.module";
     MatDatepickerModule,
     HttpClientModule,
     ProductsModule,
-    AuthModule
+    AuthModule,
+    environment.production ? [] : AkitaNgDevtools.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

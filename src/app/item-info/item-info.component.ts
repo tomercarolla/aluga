@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {CartService} from "../cart.service";
+import {ItemInterface} from "../shared/item.interface";
 
 @Component({
   selector: 'app-item-info',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemInfoComponent implements OnInit {
 
-  constructor() { }
+  selectedProduct: ItemInterface[] = [];
+
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
+    this.cartService.currentProduct$.subscribe(product => this.selectedProduct = product);
   }
 
 }

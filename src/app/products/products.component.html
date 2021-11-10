@@ -3,7 +3,7 @@
 </div>
 
 <div class="list">
-  <div class="card" *ngFor="let item of products">
+  <div class="card" *ngFor="let item of filteredProducts$ | async">
     <div class="img-container">
       <img [src]="item.image">
     </div>

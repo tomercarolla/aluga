@@ -1,1 +1,14 @@
-<p>item-info works!</p>
+<ng-container *ngFor="let product of selectedProduct">
+  <div class="img-container">
+    <img [src]="product.image">
+  </div>
+  <div>
+    {{product.productName}}
+  </div>
+  <div>
+    Category: {{product.category}}
+  </div>
+  <div>
+    Price: {{product.price | currency: 'ILS' }}
+  </div>
+</ng-container>
