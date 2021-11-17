@@ -1,6 +1,6 @@
 .list {
-  display: flex;
-  //justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   padding: 20px;
   gap: 20px;
   flex-wrap: wrap;
@@ -10,9 +10,12 @@
   box-shadow: rgba(6, 24, 44, 0.4) 0 0 0 2px, rgba(6, 24, 44, 0.65) 0 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
   border-radius: 4px;
   padding: 10px;
-  width: 215px;
   display: flex;
   flex-direction: column;
+
+  .owner {
+    width: fit-content;
+  }
 
   img {
     aspect-ratio: 4 / 3;

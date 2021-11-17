@@ -45,7 +45,6 @@ export class CartService {
     // oldCart = oldCart.filter(selectedItem => selectedItem.id !== item.id);
     //this.cart.next(oldCart);
     this.cartStore.update((cartState: CartState) => {
-      debugger
       const card = cartState.card.filter(selectedItem => selectedItem.id !== item.id);
       return {
         ...cartState, card

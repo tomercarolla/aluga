@@ -4,6 +4,9 @@
 
 <div class="list">
   <div class="card" *ngFor="let item of filteredProducts$ | async">
+    <div class="owner" matBadge="4" matBadgeOverlap="false">
+      Owner: {{item.ownerName}}
+    </div>
     <div class="img-container">
       <img [src]="item.image">
     </div>

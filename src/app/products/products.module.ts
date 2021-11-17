@@ -5,9 +5,10 @@ import { ProductsRoutingModule } from './products-routing.module';
 import {ProductsComponent} from "./products.component";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
+import {MatBadgeModule} from "@angular/material/badge";
 
 const MAT_MODULES = [
-  MatInputModule, MatButtonModule
+  MatInputModule, MatButtonModule, MatBadgeModule
 ];
 
 @NgModule({
